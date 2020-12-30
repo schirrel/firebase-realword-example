@@ -1,0 +1,24 @@
+
+@import url('assets/satis.css');
+
+.modal-open .modal {    
+    background-color: #31416abf;
+}
+
+.modal.show .modal-dialog {
+        -webkit-transform: translate(0, 20%) !important;
+    transform: translate(0, 20%)  !important;
+}
+
+@media(max-height:768px){
+  .modal.show .modal-dialog {
+        -webkit-transform: translate(0, 00%) !important;
+    transform: translate(0, 0%) !important;
+}  
+}
+
+.toasted .primary, .toasted.toasted-primary {
+    
+    background-color: #2677f6 !important;
+
+}
