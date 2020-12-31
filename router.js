@@ -67,8 +67,16 @@ const routes = [
           secure: true
         }
       },{
-        path: '/product/:id',
+        path: '/product',
         name: 'secure.product',
+        component: Product,
+        meta: {
+          title: 'Product',
+          secure: true
+        }
+      },{
+        path: '/product/:id',
+        name: 'secure.productEdit',
         component: Product,
         meta: {
           title: 'Product',

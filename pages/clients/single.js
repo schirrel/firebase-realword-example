@@ -4,7 +4,7 @@ export default Vue.component("client", {
   name: "Client",
   data: function () {
     return {
-      data:[]
+      model:{}
     };
   },
   created: function () {
@@ -12,19 +12,22 @@ export default Vue.component("client", {
   },
   methods: {
     init() {
-   //   clients.save({name: 'Alan'})
+    },
+    async save () {
+      await clients.save(this.model);
+      window.$router.push({name:"secure.clients"})
     }
 
   },
   template: `
   <section>
-  <form>
+  <form class="form" action="" @submit.prevent="save">
   <fieldset>
   <legend>Client</legend>
 
   <div class="field">
   <div class="control">
-    <input class="input" type="text" name="name" id="name" placeholder="Name" />
+  <input class="input" type="text" name="name" id="name" v-model="model.name" placeholder="Name" />
     <label class="label" for="name">
       Name
     </label>
@@ -33,11 +36,10 @@ export default Vue.component("client", {
 
   </fieldset>
 
-  <button type="button">Save </button>
+  <button>Save </button>
   </form>
 
 
   </section>
-      <h1> Hi you are at Client {{ $route.params.id }}</h1>
   `
 });
