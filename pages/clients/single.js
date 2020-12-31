@@ -12,6 +12,7 @@ export default Vue.component("client", {
   },
   methods: {
     init() {
+      console.log(this.$route.params.id);
     },
     async save () {
       await clients.save(this.model);
