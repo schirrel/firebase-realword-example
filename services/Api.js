@@ -54,9 +54,9 @@ const actions = (ref) => {
 }
 
 const clients = actions('clients');
-const produtcs = actions('products');
+const products = actions('products');
 
 
 export {
-    clients, produtcs
+    clients, products
 }
