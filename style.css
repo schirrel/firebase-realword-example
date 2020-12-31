@@ -22,3 +22,8 @@
     background-color: #2677f6 !important;
 
 }
+
+table button {    
+    padding: 2px;
+    font-size: 12px;
+}
