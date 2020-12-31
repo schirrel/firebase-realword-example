@@ -8,3 +8,5 @@ https://console.firebase.google.com/u/0/project/{project}/authentication/provide
 
 
 configure rules to database as:
+
+https://savvyapps.com/blog/definitive-guide-building-web-app-vuejs-firebase

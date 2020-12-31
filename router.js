@@ -42,8 +42,17 @@ const routes = [
           secure: true
         }
       }, {
-        path: '/client/:id',
+        path: '/client',
         name: 'secure.client',
+        component: Client,
+        meta: {
+          title: 'Client',
+          secure: true
+        }
+      },
+      {
+        path: '/client/:id',
+        name: 'secure.clientEdit',
         component: Client,
         meta: {
           title: 'Client',
@@ -81,14 +90,15 @@ router.beforeEach((to, from, next) => {
   if (!isSecure) return next();
   if (Storage.credentials().has()) {
     next();
-    //  next({ name: 'vencimento'})
 
   } else {
-    if (from.name != 'login')
+    if (from.name != 'login') {
       next({
         path: '/login',
         params: { nextUrl: to.fullPath }
       })
+    }
+      
   }
 
 })

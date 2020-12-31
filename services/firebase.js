@@ -16,7 +16,7 @@ class AppFirebase {
 		if (!firebase.apps.length) {
 
 
-			window.$app = { $firebase: firebase.initializeApp(this.config)}
+			window.$app.$db = firebase.initializeApp(this.config);
 			//firebase.analytics();
 		}
 		this.provider = new firebase.auth.GoogleAuthProvider();
@@ -26,7 +26,7 @@ class AppFirebase {
 		firebase.auth().languageCode = 'pt';
 		firebase.auth().onAuthStateChanged((user) => {
 			if (!user || !user.emailVerified) {
-				console.warn("INTRUSO");
+				this.auth();
 			}
 		});
 	}

@@ -15,7 +15,7 @@ const actions = (ref) => {
     return {
         save: (model) => {
 
-            let db = window.$app.$firebase.database();
+            let db = window.$app.$db.database();
             return db.ref().child(ref).push(model);
             /* var newKey = database.ref().child(ref).push().key;
              var updates = {};
@@ -43,11 +43,11 @@ const actions = (ref) => {
             })
         },
         delete: (key) => {
-            let db = window.$app.$firebase.database();
+            let db = window.$app.$db.database();
             db.ref().child(ref).child(key).remove();
         },
         list: () => {
-            let db = window.$app.$firebase.database();
+            let db = window.$app.$db.database();
             return db.ref(ref).limitToLast(10).once('value').then((res) => snapshotToArray(res));
         }
     }
