@@ -39,6 +39,7 @@ export default Vue.component("clients", {
       <td>{{item.name}}</td>
       <td>{{item.key}}</td>
       <td>
+         <router-link class="nav-link" :to="{ name: 'secure.clientEdit', params:{id: item.key} }">Editar </router-link>
            <button type="button" @click="remove($event, item.key)">Delete </button>
       </td>
     </tr>
