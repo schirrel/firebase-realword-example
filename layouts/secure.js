@@ -4,7 +4,6 @@ export default Vue.component("AppSecure", {
 		};
 	},
 	created: function () {
-		console.log("Logged in")
 	},
 	methods: {
 	},
@@ -18,8 +17,8 @@ export default Vue.component("AppSecure", {
     <label for="menu"></label>
     <aside>
       <ul>
-        <li>Products</li>
-        <li>Clients</li>
+      <li><router-link class="nav-link" :to="{ name: 'secure.products' }">Products </router-link></li>
+      <li><router-link class="nav-link" :to="{ name: 'secure.clients'}">Clients </router-link></li>
       </ul>
     </aside>
     <main>

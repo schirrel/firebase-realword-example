@@ -3,9 +3,13 @@ import Storage from './services/storage.js';
 import Secure from "./layouts/secure.js";
 import Login from "./pages/login.js";
 import Home from "./pages/home.js";
+import Clients from "./pages/clients/list.js";
+import Client from "./pages/clients/single.js";
+import Products from "./pages/products/list.js";
+import Product from "./pages/products/single.js";
 
 const routes = [
- {
+  {
     path: '/login',
     name: 'login',
     component: Login,
@@ -13,14 +17,15 @@ const routes = [
       title: "Login"
     }
   },
- {
+  {
     path: '/',
     component: Secure,
     meta: {
       title: 'Secure',
       secure: true
     },
-	children:[ {
+    children: [
+      {
         path: '/',
         name: 'secure.home',
         component: Home,
@@ -28,13 +33,48 @@ const routes = [
           title: 'Home',
           secure: true
         }
-      }]
- }
+      }, {
+        path: '/clients',
+        name: 'secure.clients',
+        component: Clients,
+        meta: {
+          title: 'Clients',
+          secure: true
+        }
+      }, {
+        path: '/client/:id',
+        name: 'secure.client',
+        component: Client,
+        meta: {
+          title: 'Client',
+          secure: true
+        }
+      },{
+        path: '/products',
+        name: 'secure.products',
+        component: Products,
+        meta: {
+          title: 'Products',
+          secure: true
+        }
+      },{
+        path: '/product/:id',
+        name: 'secure.product',
+        component: Product,
+        meta: {
+          title: 'Product',
+          secure: true
+        }
+      }
+
+
+    ]
+  }
 
 ];
 
 const router = new VueRouter({
-	routes 
+  routes
 });
 router.beforeEach((to, from, next) => {
   const isSecure = to.matched.some((route) => route.meta.secure);

@@ -1,5 +1,5 @@
-export default Vue.component("home", {
-  name: "Home",
+export default Vue.component("products", {
+  name: "Products",
   data: function () {
     return {
     };
@@ -13,6 +13,6 @@ export default Vue.component("home", {
 
   },
   template: `
-<h1> Hi you are at Home </h1>
+<h1> Hi you are at Products </h1>
   `
 });

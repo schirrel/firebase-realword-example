@@ -10,7 +10,6 @@ export default Vue.component("AppLogin", {
 		};
 	},
 	mounted: function () {
-		console.log("mounted");
 		AuthGuard();
 	},
 

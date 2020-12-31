@@ -3,7 +3,7 @@ import App from "./components/app.js";
 import AppFirebase from "./services/firebase.js";
 
 window.$router = router;
-window.$app ={$firebase : new AppFirebase()}
+new AppFirebase();
 
 var vm = new Vue({
 	el: '#app',
