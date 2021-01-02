@@ -39,7 +39,8 @@ const routes = [
         component: Clients,
         meta: {
           title: 'Clients',
-          secure: true
+          secure: true,
+          loading: true
         }
       }, {
         path: '/client',
@@ -56,17 +57,19 @@ const routes = [
         component: Client,
         meta: {
           title: 'Client',
-          secure: true
+          secure: true,
+          loading: true
         }
-      },{
+      }, {
         path: '/products',
         name: 'secure.products',
         component: Products,
         meta: {
           title: 'Products',
-          secure: true
+          secure: true,
+          loading: true
         }
-      },{
+      }, {
         path: '/product',
         name: 'secure.product',
         component: Product,
@@ -74,13 +77,14 @@ const routes = [
           title: 'Product',
           secure: true
         }
-      },{
+      }, {
         path: '/product/:id',
         name: 'secure.productEdit',
         component: Product,
         meta: {
           title: 'Product',
-          secure: true
+          secure: true,
+          loading: true
         }
       }
 
@@ -94,6 +98,10 @@ const router = new VueRouter({
   routes
 });
 router.beforeEach((to, from, next) => {
+
+  if (to.meta && to.meta.loading) {
+    window.Pace.start({ elements: false, document: false });
+  }
   const isSecure = to.matched.some((route) => route.meta.secure);
   if (!isSecure) return next();
   if (Storage.credentials().has()) {
@@ -106,7 +114,7 @@ router.beforeEach((to, from, next) => {
         params: { nextUrl: to.fullPath }
       })
     }
-      
+
   }
 
 })

@@ -2,7 +2,6 @@ import router from "./router.js";
 import App from "./components/app.js";
 import AppFirebase from "./services/firebase.js";
 window.$app = {};
-
 window.$router = router;
 window.$app.$firebase = new AppFirebase();
 
@@ -20,4 +19,6 @@ Vue.filter('formatDate', function (value) {
 })
 
 
-Vue.use(Toasted)
+Vue.use(Toasted);
+
+

@@ -14,33 +14,31 @@ const snapshotToArray = function (snapshot) {
 const actions = (ref) => {
     return {
         save: (model) => {
-
             let db = window.$app.$db.database();
-            return db.ref().child(ref).push(model);
-            /* var newKey = database.ref().child(ref).push().key;
-             var updates = {};
-             updates[`/${ref}/${newKey}`] = model;
-             return new Promise((resolve, reject) => {
-                 firebase.database().ref().update(updates).then(function (snapshot) {
+            if (!!model.key) {
+                return db.ref(ref).child(model.key).update(model);
+            } else {
+                return db.ref().child(ref).push(model);
+            }
+        },
+        update: (model) => {
+            let db = window.$app.$db.database();
+            return db.ref(ref).child(model.key).update(model);
+            /* 
+            
+            var updates = {};
+            updates[`/${ref}/${model.key}`] = model;
+            return new Promise((resolve, reject) => {
+                 db.ref().update(updates).then(function () {
                      resolve()
                  }).catch((err) => {
                      reject(err);
                  });
-             })
- */
-
-
+             })*/
         },
-        edit: (model) => {
-            var updates = {};
-            updates[`/${ref}/${model.key}`] = model;
-            return new Promise((resolve, reject) => {
-                firebase.database().ref().update(updates).then(function () {
-                    resolve()
-                }).catch((err) => {
-                    reject(err);
-                });
-            })
+        get: (key) => {
+            let db = window.$app.$db.database();
+            return db.ref().child(ref).child(key).once('value');
         },
         delete: (key) => {
             let db = window.$app.$db.database();

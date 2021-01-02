@@ -1,5 +1,6 @@
-
 @import url('assets/satis.css');
+@import url('assets/pace-theme-default.css');
+@import url('assets/pace-theme.css');
 
 .modal-open .modal {    
     background-color: #31416abf;
@@ -23,7 +24,30 @@
 
 }
 
-table button {    
+table button, table .button {    
     padding: 2px;
     font-size: 12px;
+}
+
+
+.pace.pace-active {
+    height: 100%;
+    background: #ffffffc2;
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: 9999999;
+}
+table {
+    margin: 5px
+}
+table .actions {
+    text-align: right;
+}
+.actions > * {
+    display: inline-block;
+}
+
+form {
+    width: 80%;
 }

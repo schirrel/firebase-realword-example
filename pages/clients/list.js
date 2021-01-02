@@ -23,14 +23,15 @@ export default Vue.component("clients", {
   },
 
   template: `
-      
+      <div>
+
   <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Position</th>
-      <th width="80px">
-      <router-link class="nav-link" :to="{ name: 'secure.client' }">Novo </router-link>
+      <th width="180px" class="actions">
+      <router-link class="button" :to="{ name: 'secure.client' }">Novo </router-link>
       </th>
     </tr>
   </thead>
@@ -38,12 +39,13 @@ export default Vue.component("clients", {
   <tr v-for="(item, index) in list" :key="index">
       <td>{{item.name}}</td>
       <td>{{item.key}}</td>
-      <td>
-         <router-link class="nav-link" :to="{ name: 'secure.clientEdit', params:{id: item.key} }">Editar </router-link>
+      <td class="actions">
+         <router-link class="button" :to="{ name: 'secure.clientEdit', params:{id: item.key} }">Editar </router-link>
            <button type="button" @click="remove($event, item.key)">Delete </button>
       </td>
     </tr>
   </tbody>
 </table>
+</div>
   `
 });

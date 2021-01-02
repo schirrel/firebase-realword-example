@@ -1,22 +1,27 @@
-import {clients} from '../../services/Api.js';
+import { clients } from '../../services/Api.js';
 
 export default Vue.component("client", {
   name: "Client",
   data: function () {
     return {
-      model:{}
+      model: {}
     };
   },
   created: function () {
     this.init();
   },
   methods: {
-    init() {
-      console.log(this.$route.params.id);
+    async init() {
+      if (this.$route.params && this.$route.params.id) {
+        let result = await clients.get(this.$route.params.id);
+        let client = result.val();
+        this.model = client;
+        this.model.key = this.$route.params.id;
+      }
     },
-    async save () {
+    async save() {
       await clients.save(this.model);
-      window.$router.push({name:"secure.clients"})
+      window.$router.push({ name: "secure.clients" })
     }
 
   },

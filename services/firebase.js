@@ -17,6 +17,7 @@ class AppFirebase {
 
 
 			window.$app.$db = firebase.initializeApp(this.config);
+			
 			//firebase.analytics();
 		}
 		this.provider = new firebase.auth.GoogleAuthProvider();
