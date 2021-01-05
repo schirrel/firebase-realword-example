@@ -1,15 +1,17 @@
 # firebase-simple-admin
 Serveless front end architecture and product.
 
+https://schirrel.dev/firebase-realword-example/#/
 
-### wHAT?
-- No builder, you can just ron on browser or deploy to you static site
+
+### WHAT?
+- No builder, you can just ron on browser or deploy to you static site, EG. github pags
 - No backend need, use just firebase
 - Simple yet fine layout
 - With newest techs at javascript
 
 
-### wHAT IT HAVE?
+### WHAT IT HAVE?
 - Login based on email domain
 - Simple CRUD
 - Minimalist css
