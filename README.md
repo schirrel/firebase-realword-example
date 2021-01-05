@@ -19,4 +19,5 @@ Serveless front end architecture and product.
 - Vuejs
 - Firebase Real Time Database
 - Firebase Authenticaion
-- Satiss CSS
+- Satis CSS
+- Pacejs
