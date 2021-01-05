@@ -1,18 +1,28 @@
+import { products } from '../../services/Api.js';
+
 export default Vue.component("products", {
   name: "Products",
   data: function () {
     return {
+      list: []
     };
   },
   created: function () {
-  },
-  methods: {
-    init() {
-    
-    }
-
+      products.list().then((snapshot) => {
+        this.list = snapshot
+      });
   },
   template: `
-<h1> Hi you are at Products </h1>
+<section>
+<h1> Hi you are at at public products </h1>
+
+<ol>
+
+  <li v-for="(item, index) in list" :key="index"> {{item.name}} </li>
+
+</ol>
+
+</section>
+
   `
 });
