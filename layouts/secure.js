@@ -19,6 +19,9 @@ export default Vue.component("AppSecure", {
       <ul>
       <li><router-link class="nav-link" :to="{ name: 'secure.products' }">Products </router-link></li>
       <li><router-link class="nav-link" :to="{ name: 'secure.clients'}">Clients </router-link></li>
+<hr>
+
+      <li><router-link class="nav-link" :to="{ name: 'products'}">Public Products </router-link></li>
       </ul>
     </aside>
     <main>
