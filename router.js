@@ -7,6 +7,7 @@ import Clients from "./pages/clients/list.js";
 import Client from "./pages/clients/single.js";
 import Products from "./pages/products/list.js";
 import Product from "./pages/products/single.js";
+import PublicProduct from "./pages/products.js";
 
 const routes = [
   {
@@ -15,6 +16,13 @@ const routes = [
     component: Login,
     meta: {
       title: "Login"
+    }
+  },{
+    path: '/public/products',
+    name: 'products',
+    component: PublicProduct,
+    meta: {
+      title: "PublicProduct"
     }
   },
   {
