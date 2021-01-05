@@ -23,3 +23,9 @@ https://schirrel.dev/firebase-realword-example/#/
 - Firebase Authenticaion
 - Satis CSS
 - Pacejs
+
+
+
+## TODO
+- "Public" api/page to get values without login
+- Another frameworks and vanillajs
