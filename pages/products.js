@@ -1,5 +1,5 @@
 
-import { products } from './services/Api.js';
+import { products } from '../services/Api.js';
 export default Vue.component("publicProducts", {
   name: "Products",
   data: function () {
